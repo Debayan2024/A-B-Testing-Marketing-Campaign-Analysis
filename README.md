@@ -59,8 +59,10 @@ in the dataset, so I'm naming it here rather than pretending the comparison is c
 **Campaign A vs. Final:** χ² = 82.93, p = 8.5e-20, Cohen's h = [TODO], 95% CI on the rate difference = [TODO].
 Rejecting H₀ here — this difference is not something I'd chalk up to sampling noise.
 
-![Conversion Rates Bar Chart](results/conversion_rates.png)
-![Hypothesis Testing Flowchart](results/hypothesis_testing_flow.png)
+<img width="1027" height="725" alt="conversion_rates" src="https://github.com/user-attachments/assets/8f607fff-9753-4a22-ad52-44fae9cb7872" />
+
+<img width="1589" height="964" alt="hypothesis_testing_flow" src="https://github.com/user-attachments/assets/864c03ed-b8a2-4c17-9e8e-d8289a2a76bc" />
+
 
 ## What I think this actually tells us
 
