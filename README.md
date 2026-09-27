@@ -56,8 +56,19 @@ in the dataset, so I'm naming it here rather than pretending the comparison is c
 | E (Cmp5) | 163 | 7.3% |
 | Final    | 334 | 14.9% |
 
-**Campaign A vs. Final:** χ² = 82.93, p = 8.5e-20, Cohen's h = [TODO], 95% CI on the rate difference = [TODO].
-Rejecting H₀ here — this difference is not something I'd chalk up to sampling noise.
+**Campaign A vs. Final:** χ² = 82.93, p = 8.5e-20, Cohen's h ≈ 0.28, 95% CI on the rate difference ≈ 6.7 pp to 10.3 pp
+(Wald normal approximation, n = 2,240 per group; Wilson score interval is the more defensible choice for a
+proportion this far from 0.5 and is cheap to add via `statsmodels.stats.proportion.proportion_confint(method='wilson')`
+— worth swapping in before this goes external).
+Rejecting H₀ here — this difference is not something I'd chalk up to sampling noise. That said, h ≈ 0.28
+lands in small-to-medium territory by Cohen's convention (0.2 / 0.5 / 0.8 = small / medium / large): the
+result is real, but "real" and "large" are different claims, and the p-value alone doesn't distinguish them.
+
+*Note: my back-of-envelope recomputation of χ² from the rounded rates above (0.064 vs 0.149, n=2,240) comes
+out closer to ~84.5 than 82.93. Small enough to be rounding in how the percentages were reported, but worth
+re-running `chi2_contingency` on the exact raw counts and pasting the unrounded contingency table here rather
+than trusting either number by eye — particularly check whether the two campaign columns actually have the
+same denominator (2,240 each), since differential missingness would explain the gap too.*
 
 <img width="1027" height="725" alt="conversion_rates" src="https://github.com/user-attachments/assets/8f607fff-9753-4a22-ad52-44fae9cb7872" />
 
